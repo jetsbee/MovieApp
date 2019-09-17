@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MovieListViewController.swift
 //  MovieApp
 //
 //  Created by Jaeseob Hwang on 17/09/2019.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MovieListViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Do any aditional setup after loading the view.
+        print("This is movie list view controller")
     }
-
-
+    
+    
 }
 
