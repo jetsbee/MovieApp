@@ -20,6 +20,7 @@ class MovieListViewController: UIViewController {
     
     fileprivate func setupViews() {
         labelView.text = "This is movie list view controller"
+        labelView.textAlignment = .center
         addSubviews()
         constrainSubviews()
     }
@@ -29,7 +30,6 @@ class MovieListViewController: UIViewController {
     }
     
     fileprivate func constrainSubviews() {
-        labelView.textAlignment = .center
         labelView.translatesAutoresizingMaskIntoConstraints = false
         labelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         labelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
