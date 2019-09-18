@@ -18,6 +18,10 @@
 		151925042330D6F6000FCAD8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925032330D6F6000FCAD8 /* Coordinator.swift */; };
 		151925062330D96C000FCAD8 /* MovieListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925052330D96C000FCAD8 /* MovieListCoordinator.swift */; };
 		151925082330DCD8000FCAD8 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925072330DCD8000FCAD8 /* MovieListViewController.swift */; };
+		1519250F2331ED97000FCAD8 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519250E2331ED97000FCAD8 /* MovieListViewModel.swift */; };
+		151925112331EDA8000FCAD8 /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925102331EDA8000FCAD8 /* MovieListModel.swift */; };
+		151925152331EEA3000FCAD8 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925142331EEA3000FCAD8 /* ListViewModel.swift */; };
+		151925172331EEB2000FCAD8 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925162331EEB2000FCAD8 /* ListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		151925032330D6F6000FCAD8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		151925052330D96C000FCAD8 /* MovieListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListCoordinator.swift; sourceTree = "<group>"; };
 		151925072330DCD8000FCAD8 /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
+		1519250E2331ED97000FCAD8 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
+		151925102331EDA8000FCAD8 /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
+		151925142331EEA3000FCAD8 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		151925162331EEB2000FCAD8 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,17 +172,53 @@
 		1519250A2330DCFD000FCAD8 /* MovieList */ = {
 			isa = PBXGroup;
 			children = (
-				1519250B2330DD07000FCAD8 /* View */,
+				1519250D2331ECCE000FCAD8 /* Models */,
+				1519250C2331ECC3000FCAD8 /* ViewModels */,
+				1519250B2330DD07000FCAD8 /* Views */,
 			);
 			path = MovieList;
 			sourceTree = "<group>";
 		};
-		1519250B2330DD07000FCAD8 /* View */ = {
+		1519250B2330DD07000FCAD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				151925072330DCD8000FCAD8 /* MovieListViewController.swift */,
 			);
-			path = View;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1519250C2331ECC3000FCAD8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				151925122331EDBE000FCAD8 /* Protocols */,
+				1519250E2331ED97000FCAD8 /* MovieListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1519250D2331ECCE000FCAD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				151925132331EDCC000FCAD8 /* Protocols */,
+				151925102331EDA8000FCAD8 /* MovieListModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		151925122331EDBE000FCAD8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				151925142331EEA3000FCAD8 /* ListViewModel.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		151925132331EDCC000FCAD8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				151925162331EEB2000FCAD8 /* ListModel.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -311,9 +355,13 @@
 				151925012330D69A000FCAD8 /* AppCoordinator.swift in Sources */,
 				151925042330D6F6000FCAD8 /* Coordinator.swift in Sources */,
 				151924CD2330D487000FCAD8 /* AppDelegate.swift in Sources */,
+				1519250F2331ED97000FCAD8 /* MovieListViewModel.swift in Sources */,
+				151925112331EDA8000FCAD8 /* MovieListModel.swift in Sources */,
+				151925152331EEA3000FCAD8 /* ListViewModel.swift in Sources */,
 				151924D52330D487000FCAD8 /* MovieApp.xcdatamodeld in Sources */,
 				151925062330D96C000FCAD8 /* MovieListCoordinator.swift in Sources */,
 				151925082330DCD8000FCAD8 /* MovieListViewController.swift in Sources */,
+				151925172331EEB2000FCAD8 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
