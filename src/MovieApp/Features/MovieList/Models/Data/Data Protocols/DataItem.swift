@@ -1,5 +1,5 @@
 //
-//  ListModel.swift
+//  DataItem.swift
 //  MovieApp
 //
 //  Created by Jaeseob Hwang on 18/09/2019.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol ListModel {
-    func items(_ completionHandler: @escaping (_ items: [DataItem]) -> Void)
+protocol DataItem {
+    var id: String { get }
+    var title: String { get }
 }

@@ -22,6 +22,8 @@
 		151925112331EDA8000FCAD8 /* MovieListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925102331EDA8000FCAD8 /* MovieListModel.swift */; };
 		151925152331EEA3000FCAD8 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925142331EEA3000FCAD8 /* ListViewModel.swift */; };
 		151925172331EEB2000FCAD8 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151925162331EEB2000FCAD8 /* ListModel.swift */; };
+		1519251C2331FA77000FCAD8 /* MovieDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519251B2331FA77000FCAD8 /* MovieDataItem.swift */; };
+		1519251E2331FA87000FCAD8 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519251D2331FA87000FCAD8 /* DataItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		151925102331EDA8000FCAD8 /* MovieListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListModel.swift; sourceTree = "<group>"; };
 		151925142331EEA3000FCAD8 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		151925162331EEB2000FCAD8 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		1519251B2331FA77000FCAD8 /* MovieDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDataItem.swift; sourceTree = "<group>"; };
+		1519251D2331FA87000FCAD8 /* DataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 		1519250D2331ECCE000FCAD8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				151925182331FA13000FCAD8 /* Data */,
 				151925132331EDCC000FCAD8 /* Protocols */,
 				151925102331EDA8000FCAD8 /* MovieListModel.swift */,
 			);
@@ -219,6 +224,31 @@
 				151925162331EEB2000FCAD8 /* ListModel.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		151925182331FA13000FCAD8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				151925192331FA26000FCAD8 /* Data Protocols */,
+				1519251A2331FA47000FCAD8 /* Data Structs */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		151925192331FA26000FCAD8 /* Data Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1519251D2331FA87000FCAD8 /* DataItem.swift */,
+			);
+			path = "Data Protocols";
+			sourceTree = "<group>";
+		};
+		1519251A2331FA47000FCAD8 /* Data Structs */ = {
+			isa = PBXGroup;
+			children = (
+				1519251B2331FA77000FCAD8 /* MovieDataItem.swift */,
+			);
+			path = "Data Structs";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +392,8 @@
 				151925062330D96C000FCAD8 /* MovieListCoordinator.swift in Sources */,
 				151925082330DCD8000FCAD8 /* MovieListViewController.swift in Sources */,
 				151925172331EEB2000FCAD8 /* ListModel.swift in Sources */,
+				1519251E2331FA87000FCAD8 /* DataItem.swift in Sources */,
+				1519251C2331FA77000FCAD8 /* MovieDataItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

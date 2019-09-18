@@ -27,13 +27,21 @@ class MovieListCoordinator: Coordinator {
         
         guard let movieListViewController = movieListViewController else { return }
         
-//        let viewModel =  MovieListViewModel()
-//        viewModel.model = MovieListModel()
-//        viewModel.coordinatorDelegate = self
-//        movieListViewController.viewModel = viewModel
+        let viewModel =  MovieListViewModel()
+        viewModel.model = MovieListModel()
+        viewModel.coordinatorDelegate = self
+        movieListViewController.viewModel = viewModel
         window.rootViewController = movieListViewController
         
     }
-    
+}
 
+extension MovieListCoordinator: ListViewModelCoordinatorDelegate
+{
+    func listViewModelDidSelectData(_ viewModel: ListViewModel, data: DataItem)
+    {
+//        detailCoordinator = DetailCoordinator(window: window, dataItem: data)
+//        detailCoordinator?.delegate = self
+//        detailCoordinator?.start()
+    }
 }
