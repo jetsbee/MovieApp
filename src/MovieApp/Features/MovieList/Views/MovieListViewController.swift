@@ -21,6 +21,7 @@ class MovieListViewController: UIViewController {
     fileprivate func setupViews() {
         labelView.text = "This is movie list view controller"
         labelView.textAlignment = .center
+        labelView.backgroundColor = .red
         addSubviews()
         constrainSubviews()
     }
@@ -34,7 +35,7 @@ class MovieListViewController: UIViewController {
         labelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         labelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         labelView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        labelView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        labelView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
 }

@@ -27,8 +27,8 @@ class MovieListCoordinator: Coordinator {
         
         guard let movieListViewController = movieListViewController else { return }
         
-//        let viewModel =  movieListViewModel()
-//        viewModel.model = movieListModel()
+//        let viewModel =  MovieListViewModel()
+//        viewModel.model = MovieListModel()
 //        viewModel.coordinatorDelegate = self
 //        movieListViewController.viewModel = viewModel
         window.rootViewController = movieListViewController
