@@ -13,7 +13,7 @@ class AppCoordinator: Coordinator {
     var window: UIWindow
     var coordinators = [String:Coordinator]()
     
-    fileprivate let LIST_KEY: String  = "MovieList"
+    fileprivate let MOVIELIST_KEY: String  = "MovieList"
     
     init(window: UIWindow)
     {
@@ -30,11 +30,11 @@ extension AppCoordinator: MovieListCoordinatorDelegate {
     
     func showMovieList() {
         let movieListCoordinator = MovieListCoordinator(window: window)
-        coordinators[LIST_KEY] = movieListCoordinator
+        coordinators[MOVIELIST_KEY] = movieListCoordinator
         movieListCoordinator.delegate = self
         movieListCoordinator.start()    }
     
     func movieListCoordinatorDidFinish(movieListCoordinator: MovieListCoordinator) {
-        coordinators[LIST_KEY] = nil
+        coordinators[MOVIELIST_KEY] = nil
     }
 }
