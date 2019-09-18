@@ -32,7 +32,8 @@ extension AppCoordinator: MovieListCoordinatorDelegate {
         let movieListCoordinator = MovieListCoordinator(window: window)
         coordinators[MOVIELIST_KEY] = movieListCoordinator
         movieListCoordinator.delegate = self
-        movieListCoordinator.start()    }
+        movieListCoordinator.start()
+    }
     
     func movieListCoordinatorDidFinish(movieListCoordinator: MovieListCoordinator) {
         coordinators[MOVIELIST_KEY] = nil
