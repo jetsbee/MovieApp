@@ -28,10 +28,6 @@ class MovieListViewModel: ListViewModel {
         }
     }
     
-    var title: String {
-        return "Movie List"
-    }
-    
     var numberOfItems: Int {
         if let items = items {
             return items.count
