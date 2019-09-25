@@ -10,4 +10,5 @@ import Foundation
 
 protocol ListModel {
     func items(_ completionHandler: @escaping (_ items: [DataItem]) -> Void)
+    func setItems(_ items: [DataItem])
 }

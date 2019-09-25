@@ -10,6 +10,8 @@ import Foundation
 
 class MovieListModel: ListModel {
     fileprivate var items = [DataItem]()
+    /*
+    fileprivate var items = [DataItem]()
     
     init() {
         createDataItems()
@@ -21,6 +23,11 @@ class MovieListModel: ListModel {
         items.append(MovieDataItem(id: "2", title: "해리포터3"))
         items.append(MovieDataItem(id: "3", title: "해리포터4"))
         items.append(MovieDataItem(id: "4", title: "해리포터5"))
+    }
+    */
+    
+    func setItems(_ items: [DataItem]) {
+        self.items = items
     }
     
     func items(_ completionHandler: @escaping (_ items: [DataItem]) -> Void) {

@@ -12,6 +12,7 @@ class MovieListViewModel: ListViewModel {
     
     weak var viewDelegate: ListViewModelViewDelegate?
     weak var coordinatorDelegate: ListViewModelCoordinatorDelegate?
+    private let networking = Networking()
     
     fileprivate var items: [DataItem]? {
         didSet {
@@ -45,6 +46,24 @@ class MovieListViewModel: ListViewModel {
     func useItemAtIndex(_ index: Int) {
         if let items = items, let coordinatorDelegate = coordinatorDelegate  , index < items.count {
             coordinatorDelegate.listViewModelDidSelectData(self, data: items[index])
+        }
+    }
+    
+    func getMovies(limit: Int,
+                   minimumRating: Int,
+                   completion: (() -> Void)?) {
+        networking.performNetworkTask(endpoint: YTSApi.movies(limit: limit, minimumRating: minimumRating),
+                                      type: RawMovies.self) { [weak self] (response) in
+                                        //self?.rawMovies = response
+                                        var items = [DataItem]()
+                                        for movie in response.data.movies {
+                                            items.append(MovieDataItem(id: String(movie.id), title: movie.title))
+                                        }
+                                        let model = MovieListModel()
+                                        model.setItems(items)
+                                        self?.model = model
+                                        
+                                        completion?()
         }
     }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DataItem {
+protocol DataItem: Codable {
     var id: String { get }
     var title: String { get }
 }

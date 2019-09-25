@@ -24,4 +24,5 @@ protocol ListViewModel {
     var numberOfItems: Int { get }
     func itemAtIndex(_ index: Int) -> DataItem?
     func useItemAtIndex(_ index: Int)
+    func getMovies(limit: Int, minimumRating: Int, completion: (() -> Void)?)
 }

@@ -38,7 +38,10 @@ class MovieListViewController: UIViewController {
         if !isViewLoaded {
             return
         }
-        
+        guard let viewModel = viewModel else { return }
+        viewModel.getMovies(limit: 10, minimumRating: 7) {
+            print("Hello, networking")
+        }
         tableView.reloadData()
     }
     
