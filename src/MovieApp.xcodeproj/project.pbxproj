@@ -130,7 +130,6 @@
 				151924FD2330D656000FCAD8 /* Coordinators */,
 				151925092330DCE7000FCAD8 /* Features */,
 				1519252123334CFE000FCAD8 /* Networking */,
-				1519252623334F02000FCAD8 /* Models */,
 				151924CC2330D487000FCAD8 /* AppDelegate.swift */,
 				151924D02330D487000FCAD8 /* Main.storyboard */,
 				151924D62330D488000FCAD8 /* Assets.xcassets */,
@@ -267,6 +266,7 @@
 		1519252123334CFE000FCAD8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				1519252623334F02000FCAD8 /* Models */,
 				1519252223334DF6000FCAD8 /* Networking.swift */,
 				1519252723334F6B000FCAD8 /* EndpointType.swift */,
 				1519252923334FBB000FCAD8 /* YTSApi.swift */,
