@@ -101,7 +101,7 @@ extension MovieListViewController: ListViewModelViewDelegate {
 
 extension MovieListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(viewModel?.itemAtIndex(indexPath.row) as Any)
+        viewModel?.useItemAtIndex((indexPath as NSIndexPath).row)
     }
 }
 

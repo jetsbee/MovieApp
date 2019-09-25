@@ -17,6 +17,7 @@ class MovieListCoordinator: Coordinator {
     var window: UIWindow
     weak var delegate: MovieListCoordinatorDelegate?
     var movieListViewController: MovieListViewController?
+    var movieDetailCoordinator: MovieDetailCoordinator?
     
     init(window: UIWindow) {
         self.window = window
@@ -36,12 +37,18 @@ class MovieListCoordinator: Coordinator {
     }
 }
 
-extension MovieListCoordinator: ListViewModelCoordinatorDelegate
-{
-    func listViewModelDidSelectData(_ viewModel: ListViewModel, data: DataItem)
-    {
-//        detailCoordinator = DetailCoordinator(window: window, dataItem: data)
-//        detailCoordinator?.delegate = self
-//        detailCoordinator?.start()
+extension MovieListCoordinator: ListViewModelCoordinatorDelegate {
+    func listViewModelDidSelectData(_ viewModel: ListViewModel, data: DataItem) {
+        movieDetailCoordinator = MovieDetailCoordinator(window: window, dataItem: data)
+        movieDetailCoordinator?.delegate = self
+        movieDetailCoordinator?.start()
+    }
+}
+
+extension MovieListCoordinator: MovieDetailCoordinatorDelegate {
+    
+    func detailCoordinatorDidFinish(movieDetailCoordinator: MovieDetailCoordinator) {
+        self.movieDetailCoordinator = nil
+        window.rootViewController = movieListViewController
     }
 }
