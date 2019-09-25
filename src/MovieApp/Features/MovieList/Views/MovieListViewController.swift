@@ -39,10 +39,11 @@ class MovieListViewController: UIViewController {
             return
         }
         guard let viewModel = viewModel else { return }
-        viewModel.getMovies(limit: 10, minimumRating: 7) {
-            print("Hello, networking")
+        viewModel.getMovies(limit: 10, minimumRating: 7) { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
         }
-        tableView.reloadData()
     }
     
     fileprivate func setupViews() {
