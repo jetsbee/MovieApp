@@ -20,8 +20,20 @@ class MovieListViewController: UIViewController {
         }
     }
     
-    let labelView = UILabel()
+    let labelView: UILabel = {
+        let labelView = UILabel()
+        labelView.text = "This is movie list view controller"
+        labelView.textAlignment = .center
+        labelView.backgroundColor = .red
+        
+        return labelView
+    }()
     let tableView = UITableView()
+    let spinner: UIActivityIndicatorView = {
+        let spinner = UIActivityIndicatorView(style: .gray)
+        
+        return spinner
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +51,16 @@ class MovieListViewController: UIViewController {
             return
         }
         guard let viewModel = viewModel else { return }
+        spinner.startAnimating()
         viewModel.getMovies(limit: 10, minimumRating: 7) { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
+                self?.spinner.stopAnimating()
             }
         }
     }
     
     fileprivate func setupViews() {
-        labelView.text = "This is movie list view controller"
-        labelView.textAlignment = .center
-        labelView.backgroundColor = .red
         addSubviews()
         constrainSubviews()
     }
@@ -57,6 +68,7 @@ class MovieListViewController: UIViewController {
     fileprivate func addSubviews() {
         view.addSubview(labelView)
         view.addSubview(tableView)
+        view.addSubview(spinner)
     }
     
     fileprivate func constrainSubviews() {
@@ -71,6 +83,10 @@ class MovieListViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: labelView.bottomAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
 }
