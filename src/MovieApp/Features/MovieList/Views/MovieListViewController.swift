@@ -107,43 +107,24 @@ extension MovieListViewController: UITableViewDataSource {
 
 class MovieItemTableViewCell: UITableViewCell {
     
-    let titleLabel = UILabel()
+    lazy var titleLabel = textLabel
     
     var item: DataItem? {
         didSet {
             if let item = item {
-                titleLabel.text = item.title
+                titleLabel?.text = item.title
             } else {
-                titleLabel.text = "???"
+                titleLabel?.text = "???"
             }
         }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-    }
-    
-    fileprivate func setupViews() {
-        titleLabel.backgroundColor = .blue
-        addSubviews()
-        constrainSubviews()
-    }
-    
-    fileprivate func addSubviews() {
-        addSubview(titleLabel)
-    }
-    
-    fileprivate func constrainSubviews() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
     
 }
