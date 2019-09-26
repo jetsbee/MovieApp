@@ -11,9 +11,11 @@ import Foundation
 struct MovieDataItem: DataItem {
     let id: String
     let title: String
+    let year: Int
     
-    init(id: String, title: String) {
+    init(id: String, title: String, year: Int) {
         self.id = id
         self.title = title
+        self.year = year
     }
 }

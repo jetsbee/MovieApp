@@ -39,13 +39,13 @@ class MovieDetailViewController: UIViewController {
         return TitleLabelView
     }()
     
-    let IdLabelView: UILabel = {
-        let IdLabelView = UILabel()
-        IdLabelView.font = UIFont.boldSystemFont(ofSize: IdLabelView.font.pointSize)
-        IdLabelView.textAlignment = .center
-        IdLabelView.backgroundColor = .white
+    let YearLabelView: UILabel = {
+        let YearLabelView = UILabel()
+        YearLabelView.font = UIFont.boldSystemFont(ofSize: YearLabelView.font.pointSize)
+        YearLabelView.textAlignment = .center
+        YearLabelView.backgroundColor = .white
         
-        return IdLabelView
+        return YearLabelView
     }()
     
     
@@ -55,7 +55,7 @@ class MovieDetailViewController: UIViewController {
         fillUI()
         setupViews()
         TitleLabelView.text = "Title: \(viewModel?.detail?.title ?? "")"
-        IdLabelView.text = "Id: \(viewModel?.detail?.id ?? "")"
+        YearLabelView.text = "Year: \(viewModel?.detail?.year ?? 0)"
         print(viewModel?.detail as Any)
         
     }
@@ -74,7 +74,7 @@ class MovieDetailViewController: UIViewController {
     fileprivate func addSubviews() {
         view.addSubview(backButtonView)
         view.addSubview(TitleLabelView)
-        view.addSubview(IdLabelView)
+        view.addSubview(YearLabelView)
     }
         
     fileprivate func constrainSubviews() {
@@ -90,11 +90,11 @@ class MovieDetailViewController: UIViewController {
         TitleLabelView.topAnchor.constraint(equalTo: backButtonView.bottomAnchor).isActive = true
         TitleLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        IdLabelView.translatesAutoresizingMaskIntoConstraints = false
-        IdLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        IdLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        IdLabelView.topAnchor.constraint(equalTo: TitleLabelView.bottomAnchor).isActive = true
-        IdLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        YearLabelView.translatesAutoresizingMaskIntoConstraints = false
+        YearLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        YearLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        YearLabelView.topAnchor.constraint(equalTo: TitleLabelView.bottomAnchor).isActive = true
+        YearLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc

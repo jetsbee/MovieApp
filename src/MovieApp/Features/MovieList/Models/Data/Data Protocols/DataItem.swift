@@ -11,4 +11,5 @@ import Foundation
 protocol DataItem {
     var id: String { get }
     var title: String { get }
+    var year: Int { get }
 }
