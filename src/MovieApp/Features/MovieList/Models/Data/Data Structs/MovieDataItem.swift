@@ -12,10 +12,12 @@ struct MovieDataItem: DataItem {
     let id: String
     let title: String
     let year: Int
+    let coverImage: String
     
-    init(id: String, title: String, year: Int) {
+    init(id: String, title: String, year: Int, coverImage: String) {
         self.id = id
         self.title = title
         self.year = year
+        self.coverImage = coverImage
     }
 }

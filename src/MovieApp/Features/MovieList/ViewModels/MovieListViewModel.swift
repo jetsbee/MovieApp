@@ -57,7 +57,7 @@ class MovieListViewModel: ListViewModel {
                                         //self?.rawMovies = response
                                         var items = [DataItem]()
                                         for movie in response.data.movies {
-                                            items.append(MovieDataItem(id: String(movie.id), title: movie.title, year: movie.year))
+                                            items.append(MovieDataItem(id: String(movie.id), title: movie.title, year: movie.year, coverImage: movie.large_cover_image))
                                         }
                                         let model = MovieListModel()
                                         model.setItems(items)

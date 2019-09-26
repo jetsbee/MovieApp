@@ -30,22 +30,28 @@ class MovieDetailViewController: UIViewController {
         return backButtonView
     }()
     
-    let TitleLabelView: UILabel = {
-        let TitleLabelView = UILabel()
-        TitleLabelView.font = UIFont.boldSystemFont(ofSize: TitleLabelView.font.pointSize)
-        TitleLabelView.textAlignment = .center
-        TitleLabelView.backgroundColor = .white
+    let titleLabelView: UILabel = {
+        let titleLabelView = UILabel()
+        titleLabelView.font = UIFont.boldSystemFont(ofSize: titleLabelView.font.pointSize)
+        titleLabelView.textAlignment = .center
+        titleLabelView.backgroundColor = .white
         
-        return TitleLabelView
+        return titleLabelView
     }()
     
-    let YearLabelView: UILabel = {
-        let YearLabelView = UILabel()
-        YearLabelView.font = UIFont.boldSystemFont(ofSize: YearLabelView.font.pointSize)
-        YearLabelView.textAlignment = .center
-        YearLabelView.backgroundColor = .white
+    let yearLabelView: UILabel = {
+        let yearLabelView = UILabel()
+        yearLabelView.font = UIFont.boldSystemFont(ofSize: yearLabelView.font.pointSize)
+        yearLabelView.textAlignment = .center
+        yearLabelView.backgroundColor = .white
         
-        return YearLabelView
+        return yearLabelView
+    }()
+    
+    let coverImageView: UIImageView = {
+        let coverImageView = UIImageView()
+        coverImageView.backgroundColor = .blue
+        return coverImageView
     }()
     
     
@@ -54,8 +60,6 @@ class MovieDetailViewController: UIViewController {
         // Do any aditional setup after loading the view.
         fillUI()
         setupViews()
-        TitleLabelView.text = "Title: \(viewModel?.detail?.title ?? "")"
-        YearLabelView.text = "Year: \(viewModel?.detail?.year ?? 0)"
         print(viewModel?.detail as Any)
         
     }
@@ -63,6 +67,16 @@ class MovieDetailViewController: UIViewController {
     fileprivate func fillUI() {
         if !isViewLoaded {
             return
+        }
+        titleLabelView.text = "Title: \(viewModel?.detail?.title ?? "")"
+        yearLabelView.text = "Year: \(viewModel?.detail?.year ?? 0)"
+        
+        let url = URL(string: viewModel?.detail?.coverImage ?? "")
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: url!)
+            DispatchQueue.main.async {
+                self.coverImageView.image = UIImage(data: data!)
+            }
         }
     }
     
@@ -73,8 +87,9 @@ class MovieDetailViewController: UIViewController {
         
     fileprivate func addSubviews() {
         view.addSubview(backButtonView)
-        view.addSubview(TitleLabelView)
-        view.addSubview(YearLabelView)
+        view.addSubview(titleLabelView)
+        view.addSubview(yearLabelView)
+        view.addSubview(coverImageView)
     }
         
     fileprivate func constrainSubviews() {
@@ -84,17 +99,22 @@ class MovieDetailViewController: UIViewController {
         backButtonView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         backButtonView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
-        TitleLabelView.translatesAutoresizingMaskIntoConstraints = false
-        TitleLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        TitleLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        TitleLabelView.topAnchor.constraint(equalTo: backButtonView.bottomAnchor).isActive = true
-        TitleLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        titleLabelView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        titleLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        titleLabelView.topAnchor.constraint(equalTo: backButtonView.bottomAnchor).isActive = true
+        titleLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
-        YearLabelView.translatesAutoresizingMaskIntoConstraints = false
-        YearLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        YearLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        YearLabelView.topAnchor.constraint(equalTo: TitleLabelView.bottomAnchor).isActive = true
-        YearLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        yearLabelView.translatesAutoresizingMaskIntoConstraints = false
+        yearLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        yearLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        yearLabelView.topAnchor.constraint(equalTo: titleLabelView.bottomAnchor).isActive = true
+        yearLabelView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        
+        coverImageView.translatesAutoresizingMaskIntoConstraints = false
+        coverImageView.topAnchor.constraint(equalTo: yearLabelView.bottomAnchor).isActive = true
+        coverImageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
     
     @objc
