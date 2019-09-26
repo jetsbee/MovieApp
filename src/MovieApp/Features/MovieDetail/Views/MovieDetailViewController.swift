@@ -61,7 +61,8 @@ class MovieDetailViewController: UIViewController {
         fillUI()
         setupViews()
         print(viewModel?.detail as Any)
-        
+        guard let imageUrl = URL(string: viewModel?.detail?.coverImage ?? "") else { return }
+        viewModel?.downloadImage(url: imageUrl, view: coverImageView)
     }
     
     fileprivate func fillUI() {
@@ -70,14 +71,6 @@ class MovieDetailViewController: UIViewController {
         }
         titleLabelView.text = "Title: \(viewModel?.detail?.title ?? "")"
         yearLabelView.text = "Year: \(viewModel?.detail?.year ?? 0)"
-        
-        let url = URL(string: viewModel?.detail?.coverImage ?? "")
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!)
-            DispatchQueue.main.async {
-                self.coverImageView.image = UIImage(data: data!)
-            }
-        }
     }
     
     fileprivate func setupViews() {

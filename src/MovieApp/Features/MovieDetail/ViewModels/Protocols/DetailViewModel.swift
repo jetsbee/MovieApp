@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol DetailViewModelViewDelegate: class {
     func detailDidChange(viewModel: DetailViewModel)
@@ -22,4 +23,5 @@ protocol DetailViewModel {
     var coordinatorDelegate: DetailViewModelCoordinatorDelegate? { get set}
     var detail: DataItem? { get }
     func done()
+    func downloadImage(url: URL, view: UIImageView)
 }
