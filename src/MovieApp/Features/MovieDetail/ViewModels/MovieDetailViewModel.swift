@@ -29,4 +29,13 @@ class MovieDetailViewModel: DetailViewModel {
     func done() {
         coordinatorDelegate?.detailViewModelDidEnd(self)
     }
+    
+    func downloadImage(url: URL, completion: @escaping (Any) -> Void ) {
+       let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data else { return }
+        // need error handler
+            completion(data)
+        }
+        task.resume()
+    }
 }

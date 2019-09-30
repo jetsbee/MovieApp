@@ -22,4 +22,5 @@ protocol DetailViewModel {
     var coordinatorDelegate: DetailViewModelCoordinatorDelegate? { get set}
     var detail: DataItem? { get }
     func done()
+    func downloadImage(url: URL, completion: @escaping (Any) -> Void)
 }

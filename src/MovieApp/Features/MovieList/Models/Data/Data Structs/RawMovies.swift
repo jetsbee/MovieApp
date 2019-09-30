@@ -16,6 +16,8 @@ struct RawMovies: Codable {
     struct Movies: Codable {
         let id: Int
         let title: String
+        let year: Int
+        let large_cover_image: String
     }
     
     var data: Data
