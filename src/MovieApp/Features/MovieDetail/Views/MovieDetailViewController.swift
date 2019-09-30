@@ -62,7 +62,12 @@ class MovieDetailViewController: UIViewController {
         setupViews()
         print(viewModel?.detail as Any)
         guard let imageUrl = URL(string: viewModel?.detail?.coverImage ?? "") else { return }
-        viewModel?.downloadImage(url: imageUrl, view: coverImageView)
+        viewModel?.downloadImage(url: imageUrl) { data in
+            guard let image = UIImage(data: data as! Data) else { return }
+                DispatchQueue.main.async {
+                    self.coverImageView.image = image
+                }
+        }
     }
     
     fileprivate func fillUI() {

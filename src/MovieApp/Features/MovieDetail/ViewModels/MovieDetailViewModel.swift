@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import UIKit
 
 class MovieDetailViewModel: DetailViewModel {
     weak var viewDelegate: DetailViewModelViewDelegate?
@@ -31,13 +30,12 @@ class MovieDetailViewModel: DetailViewModel {
         coordinatorDelegate?.detailViewModelDidEnd(self)
     }
     
-    func downloadImage(url: URL, view: UIImageView) {
-        URLSession.shared.dataTask(with: url) { data, response, error in
+    func downloadImage(url: URL, completion: @escaping (Any) -> Void ) {
+       let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard let data = data else { return }
-            guard let image = UIImage(data: data) else { return }
-            DispatchQueue.main.async {
-                view.image = image
-            }
-        }.resume()
+        // need error handler
+            completion(data)
+        }
+        task.resume()
     }
 }
